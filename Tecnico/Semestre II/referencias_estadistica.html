@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias bibliográficas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .reference-card {
+            transition: all 0.3s ease;
+        }
+        .reference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .tag { transition: all 0.2s ease; }
+        .tag:hover { transform: scale(1.05); }
+        .tag.active { font-weight: 600; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div class="min-h-screen">
+        <header class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-6">
+                <div class="flex items-center">
+                    <div class="w-16 h-16 bg-white rounded-full shadow-lg border-2 border-green-500 flex items-center justify-center mr-4">
+                        <span class="text-3xl">📚</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-green-800">Referencias bibliográficas</h1>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8">
+            
+            <div class="mb-8 fade-in">
+                <h2 class="text-xl font-bold text-green-800 mb-4">Filtrar por tipo de recurso</h2>
+                <div class="flex flex-wrap gap-2">
+                    <button class="tag px-4 py-2 bg-green-100 text-green-800 rounded-full hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 active" data-filter="all">Todos</button>
+                    <button class="tag px-4 py-2 bg-white rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500" data-filter="libro" style="color:#166534;">Libro</button>
+                    <button class="tag px-4 py-2 bg-white rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500" data-filter="web" style="color:#1e3a8a;">Recurso web</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="references-container">
+                
+                <div class="reference-card bg-white rounded-lg shadow-md overflow-hidden fade-in" data-type="libro" style="border-left: 4px solid #16a34a;">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                            <h3 class="font-bold text-lg mb-2 pr-2" style="color:#166534;"> Estadística aplicada a los negocios y la economía</h3>
+                            <span class="text-xs px-2 py-1 rounded-full mb-2 sm:mb-0 self-start" style="background:#dcfce7; color:#166534;">Libro</span>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm">Lind, D. A., Marchal, W. G., &amp; Wathen, S. A. (2019). Estadística aplicada a los negocios y la economía (17.ª ed.). McGraw-Hill Interamericana. ISBN: 978-1-4562-7215-9</p>
+                        <a href="https://gc.scalahed.com/recursos/files/r161r/w25633w/Estadistica%20para%20Administracion%20y%20Negocios.pdf" target="_blank" rel="noopener noreferrer" style="color:#15803d;" class="hover:underline underline block mb-4 text-sm">Ver recurso</a>
+                        <div class="flex justify-end mt-auto"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fgc.scalahed.com%2Frecursos%2Ffiles%2Fr161r%2Fw25633w%2FEstadistica%2520para%2520Administracion%2520y%2520Negocios.pdf" alt="QR Code" class="w-16 h-16" /></div>
+                    </div>
+                </div>
+                <div class="reference-card bg-white rounded-lg shadow-md overflow-hidden fade-in" data-type="libro" style="border-left: 4px solid #16a34a;">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                            <h3 class="font-bold text-lg mb-2 pr-2" style="color:#166534;"> Estadística descriptiva y probabilidad para los negocios: con aplicaciones en Excel y Jamovi</h3>
+                            <span class="text-xs px-2 py-1 rounded-full mb-2 sm:mb-0 self-start" style="background:#dcfce7; color:#166534;">Libro</span>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm">Cadena Lozano, J. B. (2024). Estadística descriptiva y probabilidad para los negocios: con aplicaciones en Excel y Jamovi (1.ª ed.). Editorial CESA. ISBN: 978-958-8988-85-6</p>
+                        <a href="https://ideasforlife.cesa.edu.co/gpd-estadistica-descriptiva-y-probabilidad-para-los-negocios-con-aplicaciones-en-excel-y-jamovi-9789588988856-65e77aeeb0a1a.html" target="_blank" rel="noopener noreferrer" style="color:#15803d;" class="hover:underline underline block mb-4 text-sm">Ver recurso</a>
+                        <div class="flex justify-end mt-auto"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fideasforlife.cesa.edu.co%2Fgpd-estadistica-descriptiva-y-probabilidad-para-los-negocios-con-aplicaciones-en-excel-y-jamovi-9789588988856-65e77aeeb0a1a.html" alt="QR Code" class="w-16 h-16" /></div>
+                    </div>
+                </div>
+                <div class="reference-card bg-white rounded-lg shadow-md overflow-hidden fade-in" data-type="web" style="border-left: 4px solid #2563eb;">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                            <h3 class="font-bold text-lg mb-2 pr-2" style="color:#1e3a8a;">Matemáticas</h3>
+                            <span class="text-xs px-2 py-1 rounded-full mb-2 sm:mb-0 self-start" style="background:#dbeafe; color:#1e3a8a;">Recurso web</span>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm">Khan Academy. (s. f.). Matemáticas. https://es.khanacademy.org/math</p>
+                        <a href="https://es.khanacademy.org/math" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;" class="hover:underline underline block mb-4 text-sm">Ver recurso</a>
+                        <div class="flex justify-end mt-auto"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fes.khanacademy.org%2Fmath" alt="QR Code" class="w-16 h-16" /></div>
+                    </div>
+                </div>
+                <div class="reference-card bg-white rounded-lg shadow-md overflow-hidden fade-in" data-type="web" style="border-left: 4px solid #2563eb;">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                            <h3 class="font-bold text-lg mb-2 pr-2" style="color:#1e3a8a;">Matemáticas</h3>
+                            <span class="text-xs px-2 py-1 rounded-full mb-2 sm:mb-0 self-start" style="background:#dbeafe; color:#1e3a8a;">Recurso web</span>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm">IXL Learning. (s. f.). IXL Matemáticas. https://es.ixl.com/math</p>
+                        <a href="https://es.ixl.com/math" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;" class="hover:underline underline block mb-4 text-sm">Ver recurso</a>
+                        <div class="flex justify-end mt-auto"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fes.ixl.com%2Fmath" alt="QR Code" class="w-16 h-16" /></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('[data-filter]');
+            const referenceCards = document.querySelectorAll('.reference-card');
+
+            filterButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(function(btn) {
+                        btn.classList.remove('active');
+                        btn.style.fontWeight = '';
+                        btn.style.background = '#fff';
+                    });
+                    button.classList.add('active');
+                    button.style.background = '#dcfce7';
+
+                    var filter = button.getAttribute('data-filter');
+
+                    referenceCards.forEach(function(card) {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            var type = card.getAttribute('data-type');
+                            card.style.display = (type === filter) ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
