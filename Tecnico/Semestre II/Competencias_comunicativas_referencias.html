@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias bibliográficas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            padding: 16px 20px;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .header-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            background: #fff;
+            border-radius: 50%;
+            border: 2px solid #16a34a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            font-weight: 700;
+            color: #166534;
+            line-height: 1.2;
+        }
+
+        /* Main */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+
+        /* Filters */
+        .filters {
+            margin-bottom: 24px;
+        }
+        .filters h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #166534;
+            margin-bottom: 10px;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+        }
+        .tag:hover { transform: scale(1.04); }
+        .tag.active { font-weight: 600; background: #dcfce7 !important; color: #166534 !important; border-color: #86efac; }
+
+        /* Grid */
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        /* Card */
+        .reference-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .reference-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.3;
+            flex: 1;
+        }
+        .card-badge {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+        .card-citation {
+            font-size: 0.82rem;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+        .card-link {
+            font-size: 0.82rem;
+            text-decoration: underline;
+            display: inline-block;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        .card-link:hover { opacity: 0.75; }
+        .card-qr {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: auto;
+        }
+        .card-qr img {
+            width: 64px;
+            height: 64px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+
+        @media (max-width: 480px) {
+            .references-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="header-icon">📚</div>
+            <h1>Referencias bibliográficas</h1>
+        </div>
+    </header>
+
+    <main>
+        
+        <div class="filters fade-in">
+            <h2>Filtrar por tipo de recurso</h2>
+            <div class="filter-buttons">
+                <button class="tag active" data-filter="all">Todos</button>
+                <button class="tag px-4 py-2 bg-white rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500" data-filter="libro" style="color:#166534;">Libro</button>
+                    <button class="tag px-4 py-2 bg-white rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500" data-filter="web" style="color:#1e3a8a;">Recurso web</button>
+            </div>
+        </div>
+
+        <div class="references-grid" id="references-container">
+            
+        <div class="reference-card fade-in" data-type="libro" style="border-left: 4px solid #16a34a;">
+            <div class="card-body">
+                <div class="card-header">
+                    <h3 class="card-title" style="color:#166534;">Pedagogía de la palabra: la educación lingüística y el aprendizaje de las competencias comunicativas.</h3>
+                    <span class="card-badge" style="background:#dcfce7; color:#166534;">Libro</span>
+                </div>
+                <p class="card-citation">Lomas García, C. (2018). Pedagogía de la palabra: la educación lingüística y el aprendizaje de las competencias comunicativas. Vol. I: ( ed.). Editorial UOC</p>
+                <a href="https://elibro-net.ezproxyucor.unicordoba.edu.co/es/lc/unicordoba/titulos/59164" target="_blank" rel="noopener noreferrer" class="card-link" style="color:#15803d;">Ver recurso</a>
+                <div class="card-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Felibro-net.ezproxyucor.unicordoba.edu.co%2Fes%2Flc%2Funicordoba%2Ftitulos%2F59164" alt="QR Code" /></div>
+            </div>
+        </div>
+        <div class="reference-card fade-in" data-type="libro" style="border-left: 4px solid #16a34a;">
+            <div class="card-body">
+                <div class="card-header">
+                    <h3 class="card-title" style="color:#166534;">Competencias comunicativas: proponer y argumentar</h3>
+                    <span class="card-badge" style="background:#dcfce7; color:#166534;">Libro</span>
+                </div>
+                <p class="card-citation">Ruiz Henao, Ó. D. (2006). Competencias comunicativas: proponer y argumentar: ( ed.). Fondo Editorial Universidad Cooperativa de Colombia.</p>
+                <a href="https://elibro-net.ezproxyucor.unicordoba.edu.co/es/lc/unicordoba/titulos/102137" target="_blank" rel="noopener noreferrer" class="card-link" style="color:#15803d;">Ver recurso</a>
+                <div class="card-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Felibro-net.ezproxyucor.unicordoba.edu.co%2Fes%2Flc%2Funicordoba%2Ftitulos%2F102137" alt="QR Code" /></div>
+            </div>
+        </div>
+        <div class="reference-card fade-in" data-type="libro" style="border-left: 4px solid #16a34a;">
+            <div class="card-body">
+                <div class="card-header">
+                    <h3 class="card-title" style="color:#166534;">Introducción al lenguaje oral, una habilidad comunicativa</h3>
+                    <span class="card-badge" style="background:#dcfce7; color:#166534;">Libro</span>
+                </div>
+                <p class="card-citation">Martín López, J. L. (2015). Introducción al lenguaje oral, una habilidad comunicativa: ( ed.). Editorial CEPE. </p>
+                <a href="https://elibro-net.ezproxyucor.unicordoba.edu.co/es/lc/unicordoba/titulos/157279" target="_blank" rel="noopener noreferrer" class="card-link" style="color:#15803d;">Ver recurso</a>
+                <div class="card-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Felibro-net.ezproxyucor.unicordoba.edu.co%2Fes%2Flc%2Funicordoba%2Ftitulos%2F157279" alt="QR Code" /></div>
+            </div>
+        </div>
+        <div class="reference-card fade-in" data-type="web" style="border-left: 4px solid #2563eb;">
+            <div class="card-body">
+                <div class="card-header">
+                    <h3 class="card-title" style="color:#1e3a8a;">Communication skills</h3>
+                    <span class="card-badge" style="background:#dbeafe; color:#1e3a8a;">Recurso web</span>
+                </div>
+                <p class="card-citation">British Council. (s. f.). Communication skills. LearnEnglish.</p>
+                <a href="https://learnenglish.britishcouncil.org/skills/speaking" target="_blank" rel="noopener noreferrer" class="card-link" style="color:#1d4ed8;">Ver recurso</a>
+                <div class="card-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Flearnenglish.britishcouncil.org%2Fskills%2Fspeaking" alt="QR Code" /></div>
+            </div>
+        </div>
+        <div class="reference-card fade-in" data-type="web" style="border-left: 4px solid #2563eb;">
+            <div class="card-body">
+                <div class="card-header">
+                    <h3 class="card-title" style="color:#1e3a8a;"> Guía para la elaboración de informes académicos</h3>
+                    <span class="card-badge" style="background:#dbeafe; color:#1e3a8a;">Recurso web</span>
+                </div>
+                <p class="card-citation">Universidad de Antioquia. (s. f.). Guía para la elaboración de informes académicos. </p>
+                <a href="https://www.udea.edu.co" target="_blank" rel="noopener noreferrer" class="card-link" style="color:#1d4ed8;">Ver recurso</a>
+                <div class="card-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fwww.udea.edu.co" alt="QR Code" /></div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var filterBtns = document.querySelectorAll('[data-filter]');
+            var cards = document.querySelectorAll('.reference-card');
+
+            filterBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    var filter = btn.getAttribute('data-filter');
+                    cards.forEach(function(card) {
+                        card.style.display = (filter === 'all' || card.getAttribute('data-type') === filter) ? '' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
